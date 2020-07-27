@@ -19,7 +19,7 @@ while (numeriCasuali.length < 5) {
 alert(numeriCasuali);
 
 // tramite setTimeout dopo 30s si eseguirà la funzione chiediNumeri
-setTimeout(chiediNumeri, 30000);
+setTimeout(chiediNumeri, 300);
 
 
 
@@ -38,14 +38,16 @@ function chiediNumeri() {
         var numeriUtente = [];
     // array vuoto per memorizzare il match tra i numeri random e quelli dell'utente
         var match = [];
+
         // creo ciclo per richiedere 5 volte i numeri all'utente e li inserisco nei numeriUtente
-        for (var i = 0; i < 5; i++) {
+        var i = 0;
+        while (numeriUtente.length < 5) {
             var numero = parseInt(prompt('Inserisci numero'));
             numeriUtente.push(numero);
             // se tra i numeri dell'utente ce n'è uno dei numeri generati lo inserisco nel array match
             if(numeriCasuali.includes(numero)){
                 match.push(numero);
-        }
+        }   ; i++;
 
         }
         // opzioni risultato
