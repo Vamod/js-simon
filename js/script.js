@@ -19,7 +19,7 @@ while (numeriCasuali.length < 5) {
 alert(numeriCasuali);
 
 // tramite setTimeout dopo 30s si eseguirà la funzione chiediNumeri
-setTimeout(chiediNumeri, 300);
+setTimeout(chiediNumeri, 30000);
 
 
 
