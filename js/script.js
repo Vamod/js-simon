@@ -4,21 +4,22 @@
 // quali dei numeri da indovinare sono stati individuati.
 
 var numeriCasuali = [];
+var i = 0;
 //genero 5 numeri casuali
-for (var i = 0; i < 5; i++) {
+while (numeriCasuali.length < 5) {
     var numeroCasuale = generaRandom(1, 100);
     //controllo che i numeri siano diversi tra di loro
     if(!numeriCasuali.includes(numeroCasuale)){
     numeriCasuali.push(numeroCasuale);
-    }
+} i++;
 }
-console.log(numeriCasuali);
+// console.log(numeriCasuali);
 
 // visualizzo numeri generati
 alert(numeriCasuali);
 
 // tramite setTimeout dopo 30s si eseguirà la funzione chiediNumeri
-setTimeout(chiediNumeri, 300);
+setTimeout(chiediNumeri, 30000);
 
 
 
