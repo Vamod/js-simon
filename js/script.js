@@ -4,14 +4,13 @@
 // quali dei numeri da indovinare sono stati individuati.
 
 var numeriCasuali = [];
-var i = 0;
 //genero 5 numeri casuali
 while (numeriCasuali.length < 5) {
     var numeroCasuale = generaRandom(1, 100);
     //controllo che i numeri siano diversi tra di loro
     if(!numeriCasuali.includes(numeroCasuale)){
     numeriCasuali.push(numeroCasuale);
-} i++;
+    }
 }
 // console.log(numeriCasuali);
 
@@ -19,9 +18,7 @@ while (numeriCasuali.length < 5) {
 alert(numeriCasuali);
 
 // tramite setTimeout dopo 30s si eseguirà la funzione chiediNumeri
-setTimeout(chiediNumeri, 30000);
-
-
+setTimeout(chiediNumeri, 300);
 
 
 
@@ -40,14 +37,18 @@ function chiediNumeri() {
         var match = [];
 
         // creo ciclo per richiedere 5 volte i numeri all'utente e li inserisco nei numeriUtente
-        var i = 0;
         while (numeriUtente.length < 5) {
-            var numero = parseInt(prompt('Inserisci numero'));
+            var numero = parseInt(prompt('Inserisci numero compreso tra 1 e 100'));
             numeriUtente.push(numero);
+            while(numero <= 0 || numero > 100){
+                var numero = parseInt(prompt('Devi inserire un numero da 1 a 100!'));
+            }
             // se tra i numeri dell'utente ce n'è uno dei numeri generati lo inserisco nel array match
             if(numeriCasuali.includes(numero)){
+                if(!match.includes(numero)){
                 match.push(numero);
-        }   ; i++;
+                }
+            }
 
         }
         // opzioni risultato
@@ -60,3 +61,15 @@ function chiediNumeri() {
         }
 
     }
+
+// ALTERNATIVA A INCLUDES
+    // function ricerca(array, elemento){
+    //     var i = 0;
+    //     while(i < array.length){
+    //         if(elemento == array[i]){
+    //             return true;
+    //         }
+    //         i++;
+    //     }
+    //     return false;
+    // }
